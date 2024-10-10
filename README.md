@@ -178,17 +178,201 @@ https://engineeringxpert.com/wp-content/uploads/2022/04/26.png
 ![image](https://user-images.githubusercontent.com/36288975/233856904-99eb708a-c907-4595-9025-c9dbd89b8879.png)
 
 ## CIRCUIT DIAGRAM 
- 
+ ![image](https://github.com/user-attachments/assets/8c44a0a5-2279-47f5-9723-33c1c0cfe6c0)
+
 
 ## STM 32 CUBE PROGRAM :
+~~~python
+void key()
+{
+	Lcd_PortType ports[] = { GPIOA, GPIOA, GPIOA, GPIOA };
+	Lcd_PinType pins[] = {GPIO_PIN_7, GPIO_PIN_6, GPIO_PIN_5, GPIO_PIN_4};
+	Lcd_HandleTypeDef lcd;
+	lcd = Lcd_create(ports, pins, GPIOB, GPIO_PIN_4, GPIOB, GPIO_PIN_5, LCD_4_BIT_MODE);
+
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_2, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_3, GPIO_PIN_SET);
+
+	col1 = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_0);
+	col2 = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_1);
+	col3 = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_2);
+	col4 = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_3);
+
+	if(!col1)
+	{
+		Lcd_cursor(&lcd, 0,1);
+		Lcd_string(&lcd, "Key 7\n");
+		HAL_Delay(500);
+		col1=1;
+	}
+
+	else if(!col2)
+		{
+			Lcd_cursor(&lcd, 0,1);
+			Lcd_string(&lcd, "Key 8\n");
+			HAL_Delay(500);
+			col2=1;
+		}
+
+	else if(!col3)
+		{
+			Lcd_cursor(&lcd, 0,1);
+			Lcd_string(&lcd, "Key 9\n");
+			HAL_Delay(500);
+			col3=1;
+		}
+
+	else if(!col4)
+			{
+				Lcd_cursor(&lcd, 0,1);
+				Lcd_string(&lcd, "Key %\n");
+				HAL_Delay(500);
+				col4=1;
+			}
+
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_2, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_3, GPIO_PIN_SET);
+
+	col1 = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_0);
+	col2 = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_1);
+	col3 = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_2);
+	col4 = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_3);
 
 
+	if(!col1)
+		{
+			Lcd_cursor(&lcd, 0,1);
+			Lcd_string(&lcd, "Key 4\n");
+			HAL_Delay(500);
+			col1=1;
+		}
+
+		else if(!col2)
+			{
+				Lcd_cursor(&lcd, 0,1);
+				Lcd_string(&lcd, "Key 5\n");
+				HAL_Delay(500);
+				col2=1;
+			}
+
+		else if(!col3)
+			{
+				Lcd_cursor(&lcd, 0,1);
+				Lcd_string(&lcd, "Key 6\n");
+				HAL_Delay(500);
+				col3=1;
+			}
+
+		else if(!col4)
+				{
+					Lcd_cursor(&lcd, 0,1);
+					Lcd_string(&lcd, "Key X\n");
+					HAL_Delay(500);
+					col4=1;
+				}
+
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_2, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_3, GPIO_PIN_SET);
+
+	col1 = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_0);
+	col2 = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_1);
+	col3 = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_2);
+	col4 = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_3);
+
+
+		if(!col1)
+			{
+				Lcd_cursor(&lcd, 0,1);
+				Lcd_string(&lcd, "Key 1\n");
+				HAL_Delay(500);
+				col1=1;
+			}
+
+			else if(!col2)
+				{
+					Lcd_cursor(&lcd, 0,1);
+					Lcd_string(&lcd, "Key 2\n");
+					HAL_Delay(500);
+					col2=1;
+				}
+
+			else if(!col3)
+				{
+					Lcd_cursor(&lcd, 0,1);
+					Lcd_string(&lcd, "Key 3\n");
+					HAL_Delay(500);
+					col3=1;
+				}
+
+			else if(!col4)
+					{
+						Lcd_cursor(&lcd, 0,1);
+						Lcd_string(&lcd, "Key -\n");
+						HAL_Delay(500);
+						col4=1;
+					}
+
+
+
+		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_2, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_3, GPIO_PIN_RESET);
+
+		col1 = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_0);
+		col2 = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_1);
+		col3 = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_2);
+		col4 = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_3);
+
+
+			if(!col1)
+				{
+					Lcd_cursor(&lcd, 0,1);
+					Lcd_string(&lcd, "Key ON/OFF\n");
+					HAL_Delay(500);
+					col1=1;
+				}
+
+				else if(!col2)
+					{
+						Lcd_cursor(&lcd, 0,1);
+						Lcd_string(&lcd, "Key 0\n");
+						HAL_Delay(500);
+						col2=1;
+					}
+
+				else if(!col3)
+					{
+						Lcd_cursor(&lcd, 0,1);
+						Lcd_string(&lcd, "Key =\n");
+						HAL_Delay(500);
+						col3=1;
+					}
+
+				else if(!col4)
+						{
+							Lcd_cursor(&lcd, 0,1);
+							Lcd_string(&lcd, "Key +\n");
+							HAL_Delay(500);
+							col4=1;
+						}
+
+}
+~~~
 
 ## Output screen shots of proteus  :
- 
- 
+ ![image](https://github.com/user-attachments/assets/d5e929ce-5f1c-4eda-a6e2-876c09bc60d6)
+
+<img width="629" alt="6" src="https://github.com/user-attachments/assets/0c85c673-13b8-4883-b38f-5c5e40d012a5">
+
  ## CIRCUIT DIAGRAM (EXPORT THE GRAPHICS TO PDF AND ADD THE SCREEN SHOT HERE): 
- 
- 
+ <img width="589" alt="6 1" src="https://github.com/user-attachments/assets/fc8278fd-05ac-4e1d-808d-8b4f9f69edea">
+
 ## Result :
 Interfacing a 4x4 keypad with ARM microcontroller are simulated in proteus and the results are verified.
